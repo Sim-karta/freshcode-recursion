@@ -1,3 +1,6 @@
+const powGroup = document.querySelector(".pow");
+const runExpBtn = powGroup.querySelector(".run-exp-btn");
+
 function exponentiation(base, exponent) {
     if (typeof base !== "number" || Number.isNaN(base)) {
         throw new TypeError("base must be a number");
@@ -18,13 +21,15 @@ function exponentiation(base, exponent) {
     return base * exponentiation(base, exponent - 1);
 }
 
-try {
-    console.log(
-        exponentiation(
-            Number(prompt("Введіть число яке хочете возвести")),
-            Number(prompt("Введіть степінь")),
-        ),
-    );
-} catch (error) {
-    console.log(error);
-}
+runExpBtn.addEventListener("click", () => {
+    try {
+        console.log(
+            exponentiation(
+                Number(prompt("Введіть число яке хочете возвести")),
+                Number(prompt("Введіть степінь")),
+            ),
+        );
+    } catch (error) {
+        console.log(error);
+    }
+});
