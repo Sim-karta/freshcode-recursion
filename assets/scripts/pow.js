@@ -7,8 +7,8 @@ function exponentiation(base, exponent) {
         throw new TypeError("exponent must be a number");
     }
 
-    if (exponent < 0 || !Number.isSafeInteger(exponent)) {
-        throw new RangeError("exponent must be not negative and integer value");
+    if (exponent <= 0 || !Number.isSafeInteger(exponent)) {
+        throw new RangeError("exponent must be positive and integer value");
     }
 
     if (exponent === 1) {
@@ -18,9 +18,13 @@ function exponentiation(base, exponent) {
     return base * exponentiation(base, exponent - 1);
 }
 
-console.log(
-    exponentiation(
-        Number(prompt("Введіть число яке хочете возвести")),
-        Number(prompt("Введіть степінь")),
-    ),
-);
+try {
+    console.log(
+        exponentiation(
+            Number(prompt("Введіть число яке хочете возвести")),
+            Number(prompt("Введіть степінь")),
+        ),
+    );
+} catch (error) {
+    console.log(error);
+}
