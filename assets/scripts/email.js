@@ -14,4 +14,8 @@ function validateEmail(email) {
     return email;
 }
 
-console.log(validateEmail("sim@gmail.com"));
+try {
+    console.log(validateEmail(prompt("Введіть вашу пошту")));
+} catch (error) {
+    console.log(error);
+}
