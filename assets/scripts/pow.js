@@ -1,9 +1,14 @@
-function exponentiation(a, n) {
-    if (n === 1) {
-        return a;
+function exponentiation(base, exponent) {
+    if (exponent === 1) {
+        return base;
     }
 
-    return a * exponentiation(a, n - 1);
+    return base * exponentiation(base, exponent - 1);
 }
 
-console.log(exponentiation(3, 3));
+console.log(
+    exponentiation(
+        prompt("Введіть число яке хочете возвести"),
+        prompt("Введіть степінь"),
+    ),
+);
