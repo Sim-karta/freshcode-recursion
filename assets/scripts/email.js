@@ -1,0 +1,26 @@
+const emailGroup = document.querySelector(".email");
+const validateEmailBtn = emailGroup.querySelector(".validate-email-btn");
+
+function validateEmail(email) {
+    if (typeof email !== "string") {
+        throw new TypeError("email must be a string");
+    }
+
+    if (!email.includes("@")) {
+        throw new Error("email must include @");
+    }
+
+    if (email.startsWith("@") || email.endsWith("@")) {
+        throw new Error("email is invalid");
+    }
+
+    return email;
+}
+
+validateEmailBtn.addEventListener("click", () => {
+    try {
+        console.log(validateEmail(prompt("Введіть вашу пошту")));
+    } catch (error) {
+        console.log(error);
+    }
+});
