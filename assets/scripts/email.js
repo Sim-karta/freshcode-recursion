@@ -1,3 +1,6 @@
+const emailGroup = document.querySelector(".email");
+const validateEmailBtn = emailGroup.querySelector(".validate-email-btn");
+
 function validateEmail(email) {
     if (typeof email !== "string") {
         throw new TypeError("email must be a string");
@@ -14,8 +17,10 @@ function validateEmail(email) {
     return email;
 }
 
-try {
-    console.log(validateEmail(prompt("Введіть вашу пошту")));
-} catch (error) {
-    console.log(error);
-}
+validateEmailBtn.addEventListener("click", () => {
+    try {
+        console.log(validateEmail(prompt("Введіть вашу пошту")));
+    } catch (error) {
+        console.log(error);
+    }
+});
